@@ -28,35 +28,35 @@ version: "1.0.0"
 date-released: "2025-06-13"
 references:
   - type: software
-    name: packaging
+    title: packaging
     version: "25.0"
     url: https://pypi.org/project/packaging/25.0/
     authors:
       - name: Donald Stufft
   - type: software
-    name: semver (Python package)
+    title: semver (Python package)
     version: "3.0.4"
     url: https://pypi.org/project/semver/3.0.4/
     authors:
       - name: Konstantine Rybnikov
   - type: software
-    name: re (Python stdlib)
+    title: re (Python stdlib)
     url: https://docs.python.org/3/library/re.html
     authors:
       - name: Python Software Foundation
   - type: standard
-    name: PEP 440 — Python Versioning Specification
+    title: PEP 440 — Python Versioning Specification
     url: https://peps.python.org/pep-0440/
     authors:
       - name: Donald Stufft
       - name: Alyssa Coghlan
   - type: standard
-    name: Semantic Versioning 2.0.0 (SemVer spec)
+    title: Semantic Versioning 2.0.0 (SemVer spec)
     url: https://semver.org/spec/v2.0.0.html
     authors:
       - name: Tom Preston-Werner
   - type: standard
-    name: Calendar Versioning (CalVer Specification)
+    title: Calendar Versioning (CalVer Specification)
     url: https://sedimental.org/calver.html
     authors:
       - name: Mahmoud Hashemi
