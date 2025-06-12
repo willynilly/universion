@@ -1,6 +1,7 @@
+
 cff-version: 1.2.0
-title: verple
-message: >-
+title: Verple
+message: >
   If you use this software, please cite it using the
   metadata from this file.
 type: software
@@ -9,16 +10,54 @@ authors:
     family-names: Riley
     email: wanderingwill@gmail.com
     orcid: "https://orcid.org/0000-0003-1822-6756"
-repository-code: >-
+repository-code: >
   https://github.com/willynilly/verple
-abstract: >-
+abstract: >
   Seriously strict and conservative universal version comparator, serializer, and protocol.
 keywords:
   - versioning
   - semantic versioning
   - pep440
   - semver
+  - calver
   - version parser
+  - json-ld
+  - provenance
 license: Apache-2.0
 version: "1.0.0"
-date-released: "2025-06-12"
+date-released: "2025-06-13"
+references:
+  - type: software
+    name: packaging
+    version: "25.0"
+    url: https://pypi.org/project/packaging/25.0/
+    authors:
+      - name: Donald Stufft
+  - type: software
+    name: semver (Python package)
+    version: "3.0.4"
+    url: https://pypi.org/project/semver/3.0.4/
+    authors:
+      - name: Konstantine Rybnikov
+  - type: software
+    name: re (Python stdlib)
+    url: https://docs.python.org/3/library/re.html
+    authors:
+      - name: Python Software Foundation
+  - type: standard
+    name: PEP 440 — Python Versioning Specification
+    url: https://peps.python.org/pep-0440/
+    authors:
+      - name: Donald Stufft
+      - name: Alyssa Coghlan
+  - type: standard
+    name: Semantic Versioning 2.0.0 (SemVer spec)
+    url: https://semver.org/spec/v2.0.0.html
+    authors:
+      - name: Tom Preston-Werner
+  - type: standard
+    name: Calendar Versioning (CalVer Specification)
+    url: https://sedimental.org/calver.html
+    authors:
+      - name: Mahmoud Hashemi
+
