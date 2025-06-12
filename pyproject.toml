@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "verple"
 version = "1.0.0"
-description = "Seriously strict and conservative universal version comparator, serializer, and protocol."
+description = "Verple is a ridiculously strict and ultra-conservative universal version format, comparator, serializer, and protocol."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
