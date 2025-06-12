@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: universion
+title: verple
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -10,9 +10,9 @@ authors:
     email: wanderingwill@gmail.com
     orcid: "https://orcid.org/0000-0003-1822-6756"
 repository-code: >-
-  https://github.com/willynilly/universion
+  https://github.com/willynilly/verple
 abstract: >-
-  Strict, conservative universal version comparator, serializer, and protocol.
+  Seriously strict and conservative universal version comparator, serializer, and protocol.
 keywords:
   - versioning
   - semantic versioning

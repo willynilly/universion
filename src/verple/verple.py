@@ -4,9 +4,9 @@ import semver
 from packaging.version import Version as Pep440Version
 
 
-class UniVersion:
+class Verple:
     """
-    UniVersion: Strict, conservative universal version comparator, serializer, and protocol.
+    Verple: Strict, conservative universal version comparator, serializer, and protocol.
 
     Design Criteria:
     -----------------
@@ -30,13 +30,13 @@ class UniVersion:
 
     5. JSON-LD serialization:
         - Full support for machine-readable semantic serialization via `to_jsonld()`.
-        - JSON-LD includes explicit versioning of the serialization format ("universion").
-        - The universion version governs the structure of the serialized JSON-LD data.
+        - JSON-LD includes explicit versioning of the serialization format ("verple").
+        - The verple version governs the structure of the serialized JSON-LD data.
 
     6. Versioned deserialization protocol:
-        - Deserialization uses the `universion` field to dispatch to correct loader.
+        - Deserialization uses the `verple` field to dispatch to correct loader.
         - Allows safe forward evolution of the data model while preserving backward compatibility.
-        - Any structural changes require incrementing the `universion` version constant.
+        - Any structural changes require incrementing the `verple` version constant.
 
     7. Multi-standard input support:
         - Can parse version strings from PEP 440, SemVer, or canonical format via `parse()`.
@@ -53,8 +53,8 @@ class UniVersion:
     """
 
     UNIVERSION_VERSION: str = "1.0.0"
-    UNIVERSION_CONTEXT: str = "https://gitlab.com/willynilly/universion/-/raw/main/src/universion/context/v1.0.0.jsonld"
-    UNIVERSION_TYPE: str = "UniVersion"
+    UNIVERSION_CONTEXT: str = "https://gitlab.com/willynilly/verple/-/raw/main/src/verple/context/v1.0.0.jsonld"
+    UNIVERSION_TYPE: str = "Verple"
 
     _SEMVER_TO_PEP440_PRERELEASE = {'alpha': 'a', 'beta': 'b', 'rc': 'rc'}
 
@@ -77,7 +77,7 @@ class UniVersion:
         self.original = original
 
     def __eq__(self, other):
-        if not isinstance(other, UniVersion):
+        if not isinstance(other, Verple):
             return NotImplemented
         return (
             self.release == other.release and
@@ -91,7 +91,7 @@ class UniVersion:
         return hash((self.release, self.prerelease, self.postrelease, self.devrelease, self.local))
 
     def __lt__(self, other):
-        if not isinstance(other, UniVersion):
+        if not isinstance(other, Verple):
             return NotImplemented
         if self.local != other.local:
             raise ValueError(f"Cannot confidently order versions with differing local metadata: {self} vs {other}")
@@ -113,7 +113,7 @@ class UniVersion:
         return (label, num)
 
     def __repr__(self):
-        return f"UniVersion('{self.original}')"
+        return f"Verple('{self.original}')"
 
     def to_canonical_string(self):
         parts = [".".join(map(str, self.release))]
@@ -133,7 +133,7 @@ class UniVersion:
         return {
             "@context": self.UNIVERSION_CONTEXT,
             "@type": self.UNIVERSION_TYPE,
-            "universion": self.UNIVERSION_VERSION,
+            "verple": self.UNIVERSION_VERSION,
             "release": list(self.release),
             "prerelease": list(self.prerelease) if self.prerelease else None,
             "postrelease": self.postrelease,
@@ -143,11 +143,11 @@ class UniVersion:
 
     @staticmethod
     def from_jsonld(data):
-        version = data.get("universion")
+        version = data.get("verple")
         if version == "1.0.0":
-            return UniVersion._from_jsonld_v1_0_0(data)
+            return Verple._from_jsonld_v1_0_0(data)
         else:
-            raise ValueError(f"Unsupported universion version: {version}")
+            raise ValueError(f"Unsupported verple version: {version}")
 
     @staticmethod
     def _from_jsonld_v1_0_0(data):
@@ -156,11 +156,11 @@ class UniVersion:
         postrelease = data.get("postrelease")
         devrelease = data.get("devrelease")
         local = data.get("local")
-        return UniVersion(release, prerelease, postrelease, devrelease, local)
+        return Verple(release, prerelease, postrelease, devrelease, local)
 
     @staticmethod
     def from_canonical_string(version_string):
-        match = UniVersion.CANONICAL_VERSION_REGEX.match(version_string)
+        match = Verple.CANONICAL_VERSION_REGEX.match(version_string)
         if not match:
             raise ValueError(f"Invalid canonical version: {version_string}")
 
@@ -177,7 +177,7 @@ class UniVersion:
         devrelease = int(match.group("dev")) if match.group("dev") else None
         local = match.group("local") or None
 
-        return UniVersion(release, prerelease, postrelease, devrelease, local)
+        return Verple(release, prerelease, postrelease, devrelease, local)
 
     @staticmethod
     def from_pep_440(version_string):
@@ -191,7 +191,7 @@ class UniVersion:
         devrelease = v.dev if v.dev else None
         local = v.local if v.local else None
 
-        return UniVersion(v.release, prerelease, postrelease, devrelease, local)
+        return Verple(v.release, prerelease, postrelease, devrelease, local)
 
     @staticmethod
     def from_sem_ver(version_string):
@@ -206,20 +206,20 @@ class UniVersion:
         if sv.prerelease:
             prerelease_parts = sv.prerelease.split('.')
             label = prerelease_parts[0].lower()
-            pep_label = UniVersion._SEMVER_TO_PEP440_PRERELEASE.get(label, label)
+            pep_label = Verple._SEMVER_TO_PEP440_PRERELEASE.get(label, label)
             num = int(prerelease_parts[1]) if len(prerelease_parts) > 1 and prerelease_parts[1].isdigit() else 0
             prerelease = (pep_label, num)
 
         local = sv.build if sv.build else None
 
-        return UniVersion(release, prerelease, None, None, local)
+        return Verple(release, prerelease, None, None, local)
 
     @staticmethod
     def parse(version_string):
         try:
-            return UniVersion.from_pep_440(version_string)
+            return Verple.from_pep_440(version_string)
         except ValueError:
             try:
-                return UniVersion.from_sem_ver(version_string)
+                return Verple.from_sem_ver(version_string)
             except ValueError:
-                return UniVersion.from_canonical_string(version_string)
+                return Verple.from_canonical_string(version_string)

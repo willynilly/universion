@@ -1,12 +1,12 @@
 
-# UniVersion
+# Verple
 
-**UniVersion** is a conservative, strict universal version comparator and serializer for Python.
+**Verple** is a seriously strict and conservative universal version comparator, serializer, and protocol.
 
 ## Design Goals
 
-- Fully conservative equality: versions are considered different if any field differs (release, prerelease, post, dev, local).
-- Conservative ordering: refuses ordering if ambiguous or undefined (e.g. differing build/local metadata).
+- Ultra-conservative equality: versions are considered different if any field differs (release, prerelease, post, dev, local).
+- Strict and adamant ordering: refuses ordering if ambiguous or undefined (e.g. differing build/local metadata).
 - Supports parsing both PEP 440 and SemVer version strings.
 - Provides stable, fully reversible serialization to canonical string representation.
 - Fully hashable and safe for use in sets and dictionaries.
@@ -14,24 +14,24 @@
 
 ## Supported Python Versions
 
-- Python >= 3.11
+- Python >= 3.10
 
 ## Installation
 
 ```bash
-pip install universion
+pip install verple
 ```
 
 ## Example Usage
 
 ```python
-from universion import UniVersion
+from verple import Verple
 
-v1 = UniVersion.parse("1.2.3a1.post2.dev3+build99")
+v1 = Verple.parse("1.2.3a1.post2.dev3+build99")
 print(v1.to_canonical_string())  # 1.2.3-a1.post2.dev3+build99
 
 # Full equality semantics
-v2 = UniVersion.parse("1.2.3a1.post2.dev3+build99")
+v2 = Verple.parse("1.2.3a1.post2.dev3+build99")
 assert v1 == v2
 
 # Hashable
@@ -39,7 +39,7 @@ versions = {v1, v2}
 assert len(versions) == 1
 
 # Ordering (only if metadata matches)
-v3 = UniVersion.parse("1.2.4")
+v3 = Verple.parse("1.2.4")
 assert v1 < v3
 ```
 
@@ -65,9 +65,9 @@ pytest tests/
 
 ## License
 
-MIT License.
+Apache 2.0
 
 ## Author
-Will Riley
-Generated with design assistance from ChatGPT based on strict conservative version semantics.
+- Will Riley
+- Generated with some coerced assistance from ChatGPT 40 based on strict version semantics.
 
