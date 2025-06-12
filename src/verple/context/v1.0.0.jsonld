@@ -1,0 +1,5 @@
+{
+    "@context": {
+        "@vocab": "https://gitlab.com/willynilly/verple/-/raw/main/src/verple/context/v1.0.0.jsonld#"
+    }
+}

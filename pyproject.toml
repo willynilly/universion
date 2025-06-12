@@ -3,11 +3,11 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "universion"
+name = "verple"
 version = "1.0.0"
-description = "Strict, conservative universal version comparator, serializer, and protocol."
+description = "Seriously strict and conservative universal version comparator, serializer, and protocol."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICEN[CS]E*"]
 keywords = ["versioning", "semantic versioning", "pep440", "PEP 440", "SemVer", "version parser"]
@@ -34,10 +34,10 @@ classifiers = [
 dependencies = ["packaging>=25.0", "semver>=3.0.4"]
 
 [project.urls]
-Homepage = "https://github.com/willynilly/universion"
-Documentation = "https://github.com/willynilly/universion#readme"
-Issues = "https://github.com/willynilly/universion/issues"
-Source = "https://github.com/willynilly/universion"
+Homepage = "https://github.com/willynilly/verple"
+Documentation = "https://github.com/willynilly/verple#readme"
+Issues = "https://github.com/willynilly/verple/issues"
+Source = "https://github.com/willynilly/verple"
 
 [project.optional-dependencies]
 testing = [
@@ -53,7 +53,7 @@ pythonpath = [
 ]
 
 [tool.hatch.build]
-include = ["src/universion/**", "CITATION.cff"]
+include = ["src/verple/**", "CITATION.cff"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/universion"]
+packages = ["src/verple"]
