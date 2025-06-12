@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: universion
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Will
+    family-names: Riley
+    email: wanderingwill@gmail.com
+    orcid: "https://orcid.org/0000-0003-1822-6756"
+repository-code: >-
+  https://github.com/willynilly/universion
+abstract: >-
+  Strict, conservative universal version comparator, serializer, and protocol.
+keywords:
+  - versioning
+  - semantic versioning
+  - pep440
+  - semver
+  - version parser
+license: Apache-2.0
+version: "1.0.0"
+date-released: "2025-06-12"
