@@ -10,7 +10,19 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 license-files = ["LICEN[CS]E*"]
-keywords = ["versioning", "semantic versioning", "pep440", "PEP 440", "SemVer", "version parser"]
+keywords = [ 
+  "versioning",  
+  "semantic versioning", 
+  "pep440", 
+  "PEP 440", 
+  "SemVer", 
+  "CalVer", 
+  "version parser", 
+  "json-ld", 
+  "linked data", 
+  "provenance"
+]
+
 authors = [
   { name = "Will Riley", email = "wanderingwill@gmail.com" },
 ]
@@ -26,9 +38,15 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
     "Topic :: Software Development",
+    "Topic :: Software Development :: Version Control",
+    "Topic :: Software Development :: Libraries :: Python Modules",
     "Topic :: Utilities"
 ]
 dependencies = ["packaging>=25.0", "semver>=3.0.4"]
