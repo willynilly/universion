@@ -1,7 +1,7 @@
 
 # Verple
 
-**Verple** is a ridiculously serious, conservative universal version format, comparator, serializer, and protocol.
+**Verple** is a ridiculously strict and ultra-conservative universal version format, comparator, serializer, and protocol.
 
 ## Design Goals
 
@@ -91,15 +91,6 @@ This project uses `pytest`:
 ```bash
 pytest tests/
 ```
-
-## License
-
-Apache 2.0
-
-## Author
-
-- Will Riley
-- Co-developed with ChatGPT-4o during protocol design.
 
 ## Protocol Semantics
 
@@ -201,3 +192,12 @@ The following fields are used throughout Verple's internal model, canonical seri
 - **verple**: The version of the Verple serialization protocol used to encode the JSON-LD document.
 
 - **@context / @type**: JSON-LD linked data metadata used to enable semantic parsing of Verple objects.
+
+## License
+
+Apache 2.0
+
+## Author
+
+- Will Riley
+- Co-developed with ChatGPT-4o during protocol design.

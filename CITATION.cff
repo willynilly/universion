@@ -13,7 +13,7 @@ authors:
 repository-code: >
   https://github.com/willynilly/verple
 abstract: >
-  Seriously strict and conservative universal version comparator, serializer, and protocol.
+  Verple is a ridiculously strict and ultra-conservative universal version format, comparator, serializer, and protocol.
 keywords:
   - versioning
   - semantic versioning
